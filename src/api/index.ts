@@ -1,9 +1,13 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+import { TResponseApiHeroes } from '../@types/marvel';
 import { auth } from './config';
 
 const BASE_URL = 'https://gateway.marvel.com:443/v1/public/characters';
 
-const getAll = async () => axios.get(BASE_URL, {
-  params: { ...auth() },
+const getAll = async ():Promise<AxiosResponse<TResponseApiHeroes>> => axios.get(BASE_URL, {
+  params: {
+    ...auth(),
+  },
 });
+
 export { getAll };

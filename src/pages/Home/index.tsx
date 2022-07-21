@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Grid, Typography } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { TResponseApiHero } from '../../@types/marvel';
 import { getAll } from '../../api';
 import { StyledPaper } from '../../components/StyledPaper';
 
@@ -11,10 +12,12 @@ export function Home() {
     justifyContent: 'center',
     alignItems: 'center',
   };
+  const [data, setData] = useState<TResponseApiHero[]>([]);
 
   useEffect(() => {
     async function fetchData() {
-      console.log(await getAll());
+      const response = await getAll();
+      setData(response.data.data.results);
     }
     fetchData();
   }, []);
@@ -31,9 +34,14 @@ export function Home() {
             Template React + Material UI
           </Typography>
 
-          <Typography variant="body1">
-            Template para desenvolvimento de aplicações React utilizando o Material UI.
-          </Typography>
+          {
+            data.map((item) => (
+              <Typography key={item.id} variant="h5" alignSelf="center">
+                {item.name}
+              </Typography>
+            ))
+
+          }
 
         </StyledPaper>
       </Grid>
