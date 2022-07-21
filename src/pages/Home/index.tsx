@@ -1,11 +1,18 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable no-param-reassign */
+/* eslint-disable import/extensions */
 /* eslint-disable max-len */
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
+import Carousel from 'react-material-ui-carousel';
+// eslint-disable-next-line import/no-absolute-path
+import logo from '/assets/images/marvel_logo.png';
 import { TResponseApiHero } from '../../@types/marvel';
 import { getAll } from '../../api';
-import { StyledPaper } from '../../components/StyledPaper';
+import { Banner } from '../../components/Banner';
 
 export function Home() {
+  const notImage = /image_not_available/;
   const alignCenter = {
     display: 'flex',
     flexDirection: 'column',
@@ -17,33 +24,21 @@ export function Home() {
   useEffect(() => {
     async function fetchData() {
       const response = await getAll();
-      setData(response.data.data.results);
+      response.data.data.results.forEach((item) => {
+        if (notImage.test(item.thumbnail.path)) {
+          item.thumbnail.path = logo.split('.')[0];
+          item.thumbnail.extension = 'png';
+        }
+        setData(response.data.data.results);
+      });
     }
     fetchData();
   }, []);
 
   return (
-    <Grid container sx={alignCenter}>
+    <Grid container sx={alignCenter} color="text.primary">
       <Grid item width="100%" paddingTop="2rem" sx={alignCenter}>
-        <StyledPaper sx={{
-          gap: '1rem',
-          alignItems: 'flex-start',
-        }}
-        >
-          <Typography variant="h3" alignSelf="center">
-            Template React + Material UI
-          </Typography>
-
-          {
-            data.map((item) => (
-              <Typography key={item.id} variant="h5" alignSelf="center">
-                {item.name}
-              </Typography>
-            ))
-
-          }
-
-        </StyledPaper>
+        <Banner />
       </Grid>
     </Grid>
   );

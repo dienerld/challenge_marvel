@@ -17,10 +17,6 @@ export function StylesGlobal() {
           flexDirection: 'column',
         },
 
-        a: {
-          textDecoration: 'none',
-          color: theme.palette.text.primary,
-        },
       }}
     />
   );
