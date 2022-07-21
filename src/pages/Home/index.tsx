@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 import { Grid, Typography } from '@mui/material';
+import { useEffect } from 'react';
+import { getAll } from '../../api';
 import { StyledPaper } from '../../components/StyledPaper';
 
 export function Home() {
@@ -9,6 +11,13 @@ export function Home() {
     justifyContent: 'center',
     alignItems: 'center',
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      console.log(await getAll());
+    }
+    fetchData();
+  }, []);
 
   return (
     <Grid container sx={alignCenter}>
