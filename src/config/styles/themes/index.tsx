@@ -5,11 +5,16 @@ declare module '@mui/material/styles' {
     status: {
       danger: string;
     };
+
     icons: {
       primary: {
         main: string;
       }
-    }
+    };
+
+    navBar: {
+      background: string;
+    };
   }
   // allow configuration using `createTheme`
   export interface ThemeOptions {
@@ -22,6 +27,9 @@ declare module '@mui/material/styles' {
         main: string;
       }
     }
+    navBar: {
+      background: string;
+    };
   }
 }
 
@@ -29,23 +37,19 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#89009f',
+      main: '#7c7c7c',
     },
     secondary: {
-      main: '#ce93d8',
+      main: '#c5c5c5',
     },
     text: {
       primary: '#eee',
       secondary: '#ccc',
     },
-    background: {
-      default: '#181818',
-    },
   },
-  icons: {
-    primary: {
-      main: '#2b583b',
-    },
+
+  navBar: {
+    background: '#303030',
   },
 
 });
@@ -53,19 +57,21 @@ export const darkTheme = createTheme({
 export const defaultTheme = createTheme({
   palette: {
     primary: {
-      main: '#2b583b',
+      main: '#3a3a3a',
     },
     secondary: {
-      main: '#e16e0e  ',
+      main: '#2e2e2e  ',
+    },
+    background: {
+      default: '#eee',
     },
     text: {
       primary: '#1f1f1f',
       secondary: '#3a2e2e',
     },
   },
-  icons: {
-    primary: {
-      main: '#2b583b',
-    },
+
+  navBar: {
+    background: '#b4b4b4',
   },
 });

@@ -1,41 +1,33 @@
 /* eslint-disable no-underscore-dangle */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
+
 import { TResponseApiHeroes } from '../../../@types/marvel';
-import { auth, BASE_URL } from '../../../api/config';
+import { fixThumb } from '../../../utils/fixThumb';
+import { fetchHeroes, fetchHero } from './fetch';
 
-type TAction = { payload: TResponseApiHeroes}
+type TAction = {
+  payload: TResponseApiHeroes;
+}
 const initialState: TResponseApiHeroes = {} as TResponseApiHeroes;
-
-const fetchHeroes = createAsyncThunk(
-  'marvel/fetchHeroes',
-  async (endpoint, params) => (await axios.get(BASE_URL + endpoint, {
-    params: {
-      ...params,
-      ...auth(),
-    },
-  })).data,
-);
-
-const fetchHero = createAsyncThunk(
-  'marvel/fetchHero',
-  async (id: number, params: Object) => (await axios.get(`${BASE_URL}/characters/${id}`, {
-    params: {
-      ...params,
-      ...auth(),
-    },
-  })).data,
-);
 
 const _allHeroesSlice = createSlice({
   name: 'allHeroes',
   initialState,
   reducers: {
     clearAllHeroes: () => initialState,
+    updateHeroes: (state, { payload }:TAction) => {
+      state = payload;
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHeroes.fulfilled, (state, { payload }: TAction) => {
+    builder.addCase(fetchHeroes.fulfilled, (
+      state,
+      { payload }:TAction,
+    ) => {
+      const heroesFixed = fixThumb(payload.data.results);
+      payload.data.results = heroesFixed;
       state = payload;
+      return state;
     });
   },
 });
@@ -45,14 +37,23 @@ const _HeroSlice = createSlice({
   initialState: {} as TResponseApiHeroes,
   reducers: {
     clearHero: () => initialState,
+    updateHero: (state, { payload }: TAction) => payload,
   },
-
+  extraReducers: (builder) => {
+    builder.addCase(fetchHero.fulfilled, (
+      state,
+      { payload }: TAction,
+    ) => {
+      const heroesFixed = fixThumb(payload.data.results);
+      payload.data.results = heroesFixed;
+      state = payload;
+      return state;
+    });
+  },
 });
 
-export const { clearAllHeroes } = _allHeroesSlice.actions;
+export const { clearAllHeroes, updateHeroes } = _allHeroesSlice.actions;
 export const allHeroesSlice = _allHeroesSlice.reducer;
 
-export const { clearHero } = _HeroSlice.actions;
+export const { clearHero, updateHero } = _HeroSlice.actions;
 export const heroSlice = _HeroSlice.reducer;
-
-export { fetchHeroes, fetchHero };
