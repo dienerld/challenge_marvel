@@ -11,7 +11,7 @@ type THeroProduction = {
   returned: number;
 }
 
-type TResponseApiHero = {
+export type TResponseApiHero = {
   id: number;
   name: string;
   description: string;

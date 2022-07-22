@@ -16,7 +16,6 @@ export function StylesGlobal() {
           display: 'flex',
           flexDirection: 'column',
         },
-
         a: {
           textDecoration: 'none',
           color: theme.palette.text.primary,

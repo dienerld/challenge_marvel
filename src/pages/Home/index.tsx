@@ -1,8 +1,13 @@
-/* eslint-disable max-len */
-import { Grid, Typography } from '@mui/material';
-import { StyledPaper } from '../../components/StyledPaper';
+import { Grid } from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
+import { useDispatch, useSelector } from 'react-redux';
+import { Banner } from '../../components/Banner';
+import { AppDispatch, reduxStates } from '../../store';
+import { fetchHeroes } from '../../store/modules/marvel/fetch';
 
 export function Home() {
+  const dispatch = useDispatch<AppDispatch>();
+
   const alignCenter = {
     display: 'flex',
     flexDirection: 'column',
@@ -10,24 +15,26 @@ export function Home() {
     alignItems: 'center',
   };
 
+  const heroes = useSelector((state: reduxStates) => state.allHeroes);
+
+  if (!heroes.data) {
+    dispatch(fetchHeroes());
+  }
+
   return (
-    <Grid container sx={alignCenter}>
+    <Grid container sx={alignCenter} color="text.primary">
       <Grid item width="100%" paddingTop="2rem" sx={alignCenter}>
-        <StyledPaper sx={{
-          gap: '1rem',
-          alignItems: 'flex-start',
-        }}
-        >
-          <Typography variant="h3" alignSelf="center">
-            Template React + Material UI
-          </Typography>
-
-          <Typography variant="body1">
-            Template para desenvolvimento de aplicações React utilizando o Material UI.
-          </Typography>
-
-        </StyledPaper>
+        <Banner />
       </Grid>
+      {
+          heroes.data && heroes.data.results.length > 0 && (
+            <Carousel>
+              {heroes.data.results.map((item) => (
+                <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt={item.name} />
+              ))}
+            </Carousel>
+          )
+        }
     </Grid>
   );
 }

@@ -21,6 +21,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react-hooks/rules-of-hooks': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'no-param-reassign': 'off',
     'react/jsx-filename-extension': [
       1,
       {
@@ -36,6 +37,7 @@ module.exports = {
       {
         ts: 'never',
         tsx: 'never',
+        png: 'never',
       },
     ],
   },
