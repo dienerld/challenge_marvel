@@ -43,7 +43,7 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
         background: theme.navBar.background,
         height: '72px',
         justifyContent: 'center',
-
+        'z-index': '1',
       }}
     >
       <Container maxWidth="xl">

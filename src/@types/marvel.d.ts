@@ -24,6 +24,11 @@ export type TResponseApiHero = {
   comics: THeroProduction;
   series: THeroProduction;
   stories: THeroProduction;
+  events: THeroProduction;
+  urls: {
+    type: string;
+    url: string;
+  }[];
 }
 
 export type TResponseApiHeroes = {
@@ -40,4 +45,5 @@ export type TResponseApiHeroes = {
     count: number;
     results: TResponseApiHero[];
   }
+
 }

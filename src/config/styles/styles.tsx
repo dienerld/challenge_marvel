@@ -20,6 +20,19 @@ export function StylesGlobal() {
           textDecoration: 'none',
           color: theme.palette.text.primary,
         },
+        ':root': {
+          [theme.breakpoints.down('lg')]: {
+            fontSize: '1rem',
+          },
+
+          [theme.breakpoints.down('md')]: {
+            fontSize: '0.8rem',
+          },
+
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '0.6rem',
+          },
+        },
       }}
     />
   );
