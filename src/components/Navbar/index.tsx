@@ -12,10 +12,11 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import {
-  CardMedia, Switch, TextField, useTheme,
+  CardMedia, Switch, useTheme,
 } from '@mui/material';
 
 import logo from '/assets/images/marvel_logo.png';
+import { SearchBar } from '../SearchBar';
 
 type propsNav = {
   toggleTheme: () => void;
@@ -48,10 +49,16 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'space-between' }} color="secondary.main">
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none' },
+              justifyContent: 'space-between',
+            }}
+            color="secondary.main"
+          >
 
             { pages.length > 0 && (
-
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -125,11 +132,8 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
               </Button>
             ))}
           </Box>
-
-          <Box>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" color="primary" />
-
-          </Box>
+          <SearchBar />
+          <Box />
 
           <Box sx={{
             marginLeft: '1rem',

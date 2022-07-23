@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { TResponseApiHeroes } from '../../../@types/marvel';
 import { fixThumb } from '../../../utils/fixThumb';
-import { fetchHeroes, fetchHero } from './fetch';
+import { fetchHeroes, fetchHero, fetchHeroesStartsWith } from './fetch';
 
 type TAction = {
   payload: TResponseApiHeroes;

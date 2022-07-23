@@ -34,4 +34,14 @@ const fetchHero = createAsyncThunk(
   })).data,
 );
 
-export { fetchHeroes, fetchHero };
+const fetchHeroesStartsWith = createAsyncThunk(
+  'marvel/fetchHeroesStartsWith',
+  async (params?: TParamsMarvel) => (await axios.get(`${BASE_URL}/characters`, {
+    params: {
+      ...params,
+      ...auth(),
+    },
+  })).data,
+);
+
+export { fetchHeroes, fetchHero, fetchHeroesStartsWith };

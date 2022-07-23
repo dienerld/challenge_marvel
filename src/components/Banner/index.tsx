@@ -12,6 +12,7 @@ export function Banner() {
     <Grid container height="100%" minHeight="500px">
       {hero && (
         <Grid
+          key={hero.id}
           item
           width="100%"
           paddingTop="2rem"
@@ -48,7 +49,7 @@ export function Banner() {
 
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             { hero.urls.map((url) => (
-              <a href={url.url} target="_blank" rel="noreferrer">
+              <a href={url.url} target="_blank" rel="noreferrer" key={url.type}>
                 <Button variant="contained" color="secondary">{url.type}</Button>
               </a>
             ))}
