@@ -9,7 +9,7 @@ export function Banner() {
   const hero = apiResponseHero.data.results[0];
 
   return (
-    <Grid container height="100%" minHeight="500px">
+    <Grid container height="100%" minHeight="550px">
       {hero && (
         <Grid
           key={hero.id}
@@ -27,7 +27,7 @@ export function Banner() {
               ? `${hero.thumbnail.path}.${hero.thumbnail.extension} ` : ''})
               center center / 100% 100% no-repeat
             `,
-            boxShadow: '0px 20px 10px 30px rgba(0, 0, 0, 0.4)',
+            boxShadow: '0px 20px 20px 32px rgba(0, 0, 0, 0.95)',
             padding: '3rem',
           }}
         >
@@ -47,7 +47,7 @@ export function Banner() {
             </Typography>
           </Box>
 
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
+          <Box sx={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }}>
             { hero.urls.map((url) => (
               <a href={url.url} target="_blank" rel="noreferrer" key={url.type}>
                 <Button variant="contained" color="secondary">{url.type}</Button>
