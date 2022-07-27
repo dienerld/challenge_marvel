@@ -1,17 +1,20 @@
 import {
   Box,
+  Button,
   Paper, styled, SxProps, Theme, Typography, useTheme,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
 import { TResponseApiHero } from '../../@types/marvel';
 
 type StyledPaperProps = {
   sx?: SxProps<Theme>;
   height?: string;
 };
+
 type SlideProps = {
   sx?: SxProps<Theme>;
-  hero:TResponseApiHero
+  hero:TResponseApiHero;
 };
 
 const breakpoints = (theme: Theme) => ({
@@ -46,34 +49,67 @@ const StyledPaperMui = styled(Paper)(({ sx }: StyledPaperProps) => {
 });
 export function Card({ hero, sx }: SlideProps) {
   const theme = useTheme();
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <StyledPaperMui sx={sx}>
-      <Box
-        sx={{
-          height: '18rem',
-          width: '95%',
-          borderRadius: '0.5rem',
-          background: `url(${hero.thumbnail.path}.${hero.thumbnail.extension}) center center / 100% 100% no-repeat`,
-          ...breakpoints(theme),
+    <StyledPaperMui
+      sx={sx}
 
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-        }}
-      >
-        <Typography
-          variant="h5"
-          color="text.primary"
+    >
+      <ReactCardFlip isFlipped={isFlipped}>
+
+        <Box
+          onClick={() => setIsFlipped(!isFlipped)}
           sx={{
-            marginBottom: '0.5rem',
-            textShadow: `2px 0 #000, -2px 0 #000, 0 2px #000,0 -2px #000,
-            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;`,
+            height: '18rem',
+            width: '95%',
+            borderRadius: '0.5rem',
+            background: `url(${hero.thumbnail.path}.${hero.thumbnail.extension}) center center / 100% 100% no-repeat`,
+            ...breakpoints(theme),
+
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
           }}
         >
-          {hero.name}
-        </Typography>
-      </Box>
+          <Typography
+            variant="h5"
+            color="#fff"
+            sx={{
+              marginLeft: '1rem',
+              marginBottom: '0.5rem',
+              textShadow: `2px 0 #000, -2px 0 #000, 0 2px #000,0 -2px #000,
+            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;`,
+            }}
+          >
+            {hero.name}
+          </Typography>
+        </Box>
+
+        <Box
+          onClick={() => setIsFlipped(!isFlipped)}
+          sx={{
+            height: '18rem',
+            width: '95%',
+            borderRadius: '0.5rem',
+            ...breakpoints(theme),
+          }}
+        >
+
+          <Typography
+            variant="h5"
+            color="text.primary"
+            sx={{
+              marginBottom: '0.5rem',
+              textShadow: `2px 0 #000, -2px 0 #000, 0 2px #000,0 -2px #000,
+            1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;`,
+            }}
+          >
+            {hero.name}
+          </Typography>
+        </Box>
+      </ReactCardFlip>
+
     </StyledPaperMui>
   );
 }

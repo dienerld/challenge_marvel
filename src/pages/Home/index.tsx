@@ -1,5 +1,5 @@
-import { Grid } from '@mui/material';
-import { useEffect } from 'react';
+import { Box, Grid } from '@mui/material';
+import { useEffect, useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -60,21 +60,23 @@ export function Home() {
         sx={{
           padding: '0 1rem',
           marginTop: '-3rem',
+
         }}
       >
         { hero.code === 200 && (
         <AliceCarousel
           responsive={responsive}
           controlsStrategy="alternate"
-          disableDotsControls
           mouseTracking
-          infinite
+          disableDotsControls
         >
           { heroes?.data.results.map((_hero) => (
+
             <Card
               key={_hero.id}
               hero={_hero}
             />
+
           ))}
         </AliceCarousel>
         )}

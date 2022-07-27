@@ -24,7 +24,7 @@ export function SearchBar() {
   };
 
   const searchHero = (e: KeyboardEvent): void => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && hero?.id) {
       navigate(`/hero/${hero?.id}`);
     }
   };

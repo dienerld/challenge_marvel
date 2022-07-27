@@ -21,8 +21,9 @@ export function Hero() {
   useEffect(() => {
     getHero();
   }, [id]);
+
   return (
-    <Typography variant="h6" gutterBottom>
+    <Typography variant="h6" color="primary" gutterBottom>
       {hero.name}
     </Typography>
   );
