@@ -2,14 +2,14 @@ type TProductionItems = {
   collectionURI: string;
   name: string;
   type?: string;
-}
+};
 
 type THeroProduction = {
   available: number;
   collectionURI: string;
   items: TProductionItems[];
   returned: number;
-}
+};
 
 export type TResponseApiHero = {
   id: number;
@@ -29,7 +29,7 @@ export type TResponseApiHero = {
     type: string;
     url: string;
   }[];
-}
+};
 
 export type TResponseApiHeroes = {
   code: number;
@@ -44,6 +44,5 @@ export type TResponseApiHeroes = {
     total: number;
     count: number;
     results: TResponseApiHero[];
-  }
-
-}
+  };
+};
