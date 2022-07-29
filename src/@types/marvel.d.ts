@@ -16,6 +16,10 @@ export type TResponseApiHero = {
     extension: string;
   };
   resourceURI: string;
+  comics: { available: number;}
+  series: { available: number;}
+  stories: { available: number;}
+  events: { available: number;}
   urls: {
     type: string;
     url: string;
