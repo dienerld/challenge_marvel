@@ -1,15 +1,10 @@
-import md5 from 'md5';
+import crypto from "crypto";
 
-export const BASE_URL = 'https://gateway.marvel.com:443/v1/public';
-export function auth() {
-  const privateKey = import.meta.env.VITE_PRIVATE_KEY as string;
-  const publicKey = import.meta.env.VITE_PUBLIC_KEY as string;
-  const ts = new Date().getTime();
-  const hash = md5(String(ts) + privateKey + publicKey);
+const privateKey = import.meta.env.PRIVATE_KEY;
+const publicKey = import.meta.env.PUBLIC_KEY;
+const ts = new Date().getTime();
 
-  return {
-    ts: String(ts),
-    apikey: publicKey,
-    hash,
-  };
-}
+export const md5 = crypto
+  .createHash("md5")
+  .update(String(ts) + privateKey + publicKey)
+  .digest("hex");

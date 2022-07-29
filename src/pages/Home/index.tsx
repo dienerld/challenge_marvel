@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Grid } from "@mui/material";
 import { useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -16,10 +17,13 @@ import { randomHero } from "../../utils/randomHero";
 
 const MAX_HERO = 1562;
 const limit = 25;
+=======
+/* eslint-disable max-len */
+import { Grid, Typography } from "@mui/material";
+import { StyledPaper } from "../../components/StyledPaper";
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
 
 export function Home() {
-  const dispatch = useDispatch<AppDispatch>();
-
   const alignCenter = {
     display: "flex",
     flexDirection: "column",
@@ -27,6 +31,7 @@ export function Home() {
     alignItems: "center",
   };
 
+<<<<<<< HEAD
   const heroes = useSelector((state: reduxStates) => state.allHeroes);
   const hero = useSelector((state: reduxStates) => state.hero);
   const params: TParamsMarvel = {
@@ -79,6 +84,26 @@ export function Home() {
             ))}
           </AliceCarousel>
         )}
+=======
+  return (
+    <Grid container sx={alignCenter}>
+      <Grid item width="100%" paddingTop="2rem" sx={alignCenter}>
+        <StyledPaper
+          sx={{
+            gap: "1rem",
+            alignItems: "flex-start",
+          }}
+        >
+          <Typography variant="h3" alignSelf="center">
+            Template React + Material UI
+          </Typography>
+
+          <Typography variant="body1">
+            Template para desenvolvimento de aplicações React utilizando o
+            Material UI.
+          </Typography>
+        </StyledPaper>
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
       </Grid>
     </Grid>
   );

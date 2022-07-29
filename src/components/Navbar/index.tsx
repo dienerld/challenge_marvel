@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,15 +18,31 @@ import {
 
 import logo from '/assets/images/marvel_logo.png';
 import { SearchBar } from '../SearchBar';
+=======
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "react-router-dom";
+import { Switch, useTheme } from "@mui/material";
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
 
 type propsNav = {
   toggleTheme: () => void;
-  pages: string[]
+  pages: string[];
 };
 
 export const Navbar = ({ toggleTheme, pages }: propsNav) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
   const theme = useTheme();
 
@@ -41,14 +58,19 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
     <AppBar
       position="static"
       sx={{
+<<<<<<< HEAD
         background: theme.navBar.background,
         height: '72px',
         justifyContent: 'center',
         'z-index': '1',
+=======
+        background: "background.secondary",
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
       }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+<<<<<<< HEAD
           <Box
             sx={{
               flexGrow: 1,
@@ -70,68 +92,104 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
                 <MenuIcon />
               </IconButton>
             )}
+=======
+          {/*  <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            {/* LOGO */}
+            <img
+              src="https://www.freepnglogos.com/uploads/marvel-logo-png/image-marvel-logo-marvel-microheroes-wiki-fandom-12.png"
+              alt=""
+            />
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={page.toLowerCase()}>{page.toUpperCase()}</Link>
+                    <Link to={page.toLowerCase()}>{page}</Link>
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
-            <Link to="/">
-              <CardMedia
-                component="img"
-                src={logo}
-                sx={{
-                  padding: '1rem',
-                  maxHeight: '100px',
-                  width: '100px',
-                  display: { xs: 'none', sm: 'block' },
-                }}
-              />
-            </Link>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to="/">
-              <CardMedia
-                component="img"
-                src={logo}
-                sx={{
-                  padding: '1rem',
-                  maxHeight: '100px',
-                  width: '100px',
-                }}
-              />
-            </Link>
-
+          {/* " <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />" */}
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            {/* LOGO */}
+            <img
+              src="https://www.freepnglogos.com/uploads/marvel-logo-png/image-marvel-logo-marvel-microheroes-wiki-fandom-12.png"
+              alt=""
+            />
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
-                <Link to={page.toLowerCase()}>{page.toUpperCase()}</Link>
+                <Link to={page.toLowerCase()}>{page}</Link>
               </Button>
             ))}
           </Box>
+<<<<<<< HEAD
           <SearchBar />
           <Box />
 
@@ -143,12 +201,15 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
           }}
           >
             <LightMode fontSize="small" />
+=======
+
+          <Box sx={{ flexGrow: 0 }}>
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
             <Switch
               color="secondary"
               onChange={toggleTheme}
-              checked={theme.palette.mode === 'dark'}
+              checked={theme.palette.mode === "dark"}
             />
-            <DarkMode fontSize="small" />
           </Box>
         </Toolbar>
       </Container>

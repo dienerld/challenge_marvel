@@ -1,6 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { auth, BASE_URL } from '../../../api/config';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { auth, BASE_URL } from "../../../api/config";
 
 export type TParamsMarvel = {
   name?: string;
@@ -15,6 +15,7 @@ export type TParamsMarvel = {
 }
 
 const fetchHeroes = createAsyncThunk(
+<<<<<<< HEAD
   'marvel/fetchHeroes',
   async (params?: TParamsMarvel) => (await axios.get(`${BASE_URL}/characters`, {
     params: {
@@ -32,6 +33,31 @@ const fetchHero = createAsyncThunk(
       ...auth(),
     },
   })).data,
+=======
+  "marvel/fetchHeroes",
+  async (params?: Object) =>
+    (
+      await axios.get(`${BASE_URL}/characters`, {
+        params: {
+          ...params,
+          ...auth(),
+        },
+      })
+    ).data
+);
+
+const fetchHero = createAsyncThunk(
+  "marvel/fetchHero",
+  async (id: number, params?: Object) =>
+    (
+      await axios.get(`${BASE_URL}/characters/${id}`, {
+        params: {
+          ...params,
+          ...auth(),
+        },
+      })
+    ).data
+>>>>>>> f1de070014d02e951122df4cde68602841c6fde8
 );
 
 const fetchHeroesStartsWith = createAsyncThunk(
