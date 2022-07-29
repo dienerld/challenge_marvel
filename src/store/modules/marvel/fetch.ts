@@ -44,4 +44,6 @@ const fetchHeroesStartsWith = createAsyncThunk(
   })).data,
 );
 
-export { fetchHeroes, fetchHero, fetchHeroesStartsWith };
+export {
+  fetchHeroes, fetchHero, fetchHeroesStartsWith,
+};

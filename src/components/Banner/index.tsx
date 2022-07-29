@@ -1,5 +1,5 @@
 import {
-  Box, Button, Grid, Typography,
+  Box, Button, Grid, Typography, useTheme,
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { reduxStates } from '../../store';
@@ -7,9 +7,19 @@ import { reduxStates } from '../../store';
 export function Banner() {
   const apiResponseHero = useSelector((state: reduxStates) => state.hero);
   const hero = apiResponseHero.data.results[0];
+  const theme = useTheme();
 
   return (
-    <Grid container height="100%" minHeight="550px">
+    <Grid
+      container
+      height="100%"
+      minHeight="550px"
+      sx={{
+        [theme.breakpoints.down('sm')]: {
+          minHeight: '400px',
+        },
+      }}
+    >
       {hero && (
         <Grid
           key={hero.id}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 type TProductionItems = {
   collectionURI: string;
   name: string;
@@ -10,6 +11,15 @@ type THeroProduction = {
   items: TProductionItems[];
   returned: number;
 };
+=======
+export type ContentHero ={
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
+  title: string;
+}
+>>>>>>> 6d17b9b765cc7175bfb9de3497aba4c1b11e3cb0
 
 export type TResponseApiHero = {
   id: number;
@@ -21,10 +31,10 @@ export type TResponseApiHero = {
     extension: string;
   };
   resourceURI: string;
-  comics: THeroProduction;
-  series: THeroProduction;
-  stories: THeroProduction;
-  events: THeroProduction;
+  comics: { available: number;}
+  series: { available: number;}
+  stories: { available: number;}
+  events: { available: number;}
   urls: {
     type: string;
     url: string;
