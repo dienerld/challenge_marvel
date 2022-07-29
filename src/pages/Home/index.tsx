@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-import { Box, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
+import { useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Banner } from "../../components/Banner";
 import { Card } from "../../components/Card";
@@ -13,19 +13,6 @@ import {
   TParamsMarvel,
 } from "../../store/modules/marvel/fetch";
 import { randomHero } from "../../utils/randomHero";
-=======
-import { Grid } from '@mui/material';
-import { useEffect } from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { Banner } from '../../components/Banner';
-import { Card } from '../../components/Card';
-import { AppDispatch, reduxStates } from '../../store';
-import { fetchHero, fetchHeroes, TParamsMarvel } from '../../store/modules/marvel/fetch';
-import { randomHero } from '../../utils/randomHero';
->>>>>>> 6d17b9b765cc7175bfb9de3497aba4c1b11e3cb0
 
 const MAX_HERO = 1562;
 const limit = 25;
