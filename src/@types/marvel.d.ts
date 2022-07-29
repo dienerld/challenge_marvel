@@ -1,10 +1,23 @@
-export type ContentHero ={
+type TProductionItems = {
+  collectionURI: string;
+  name: string;
+  type?: string;
+};
+
+type THeroProduction = {
+  available: number;
+  collectionURI: string;
+  items: TProductionItems[];
+  returned: number;
+};
+
+export type ContentHero = {
   thumbnail: {
     path: string;
     extension: string;
   };
   title: string;
-}
+};
 
 export type TResponseApiHero = {
   id: number;
@@ -16,17 +29,19 @@ export type TResponseApiHero = {
     extension: string;
   };
   resourceURI: string;
-  comics: { available: number;}
-  series: { available: number;}
-  stories: { available: number;}
-  events: { available: number;}
+  comics: { available: number };
+  series: { available: number };
+  stories: { available: number };
+  events: { available: number };
   urls: {
     type: string;
     url: string;
   }[];
-}
+};
 
 export type TResponseApiHeroes = {
+  name: ReactNode;
+  description: any;
   code: number;
   status: string;
   copyright: string;
@@ -39,6 +54,5 @@ export type TResponseApiHeroes = {
     total: number;
     count: number;
     results: TResponseApiHero[];
-  }
-
-}
+  };
+};
