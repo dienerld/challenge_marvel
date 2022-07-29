@@ -32,6 +32,8 @@ export type TResponseApiHero = {
 };
 
 export type TResponseApiHeroes = {
+  name: ReactNode;
+  description: any;
   code: number;
   status: string;
   copyright: string;
