@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import { LightMode, DarkMode } from '@mui/icons-material/';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-import {
-  CardMedia, Switch, useTheme,
-} from '@mui/material';
-
-import logo from '/assets/images/marvel_logo.png';
-import { SearchBar } from '../SearchBar';
-=======
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -27,13 +6,15 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
+import { LightMode, DarkMode } from "@mui/icons-material/";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
-import { Switch, useTheme } from "@mui/material";
->>>>>>> f1de070014d02e951122df4cde68602841c6fde8
+import { CardMedia, Switch, useTheme } from "@mui/material";
+
+import logo from "/assets/images/marvel_logo.png";
+import { SearchBar } from "../SearchBar";
 
 type propsNav = {
   toggleTheme: () => void;
@@ -58,29 +39,23 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
     <AppBar
       position="static"
       sx={{
-<<<<<<< HEAD
         background: theme.navBar.background,
-        height: '72px',
-        justifyContent: 'center',
-        'z-index': '1',
-=======
-        background: "background.secondary",
->>>>>>> f1de070014d02e951122df4cde68602841c6fde8
+        height: "72px",
+        justifyContent: "center",
+        "z-index": "1",
       }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-<<<<<<< HEAD
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'flex', md: 'none' },
-              justifyContent: 'space-between',
+              display: { xs: "flex", md: "none" },
+              justifyContent: "space-between",
             }}
             color="secondary.main"
           >
-
-            { pages.length > 0 && (
+            {pages.length > 0 && (
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -92,42 +67,6 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
                 <MenuIcon />
               </IconButton>
             )}
-=======
-          {/*  <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            {/* LOGO */}
-            <img
-              src="https://www.freepnglogos.com/uploads/marvel-logo-png/image-marvel-logo-marvel-microheroes-wiki-fandom-12.png"
-              alt=""
-            />
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
->>>>>>> f1de070014d02e951122df4cde68602841c6fde8
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -189,22 +128,18 @@ export const Navbar = ({ toggleTheme, pages }: propsNav) => {
               </Button>
             ))}
           </Box>
-<<<<<<< HEAD
           <SearchBar />
           <Box />
 
-          <Box sx={{
-            marginLeft: '1rem',
-            display: 'flex',
-            flexGrow: 0,
-            alignItems: 'center',
-          }}
+          <Box
+            sx={{
+              marginLeft: "1rem",
+              display: "flex",
+              flexGrow: 0,
+              alignItems: "center",
+            }}
           >
             <LightMode fontSize="small" />
-=======
-
-          <Box sx={{ flexGrow: 0 }}>
->>>>>>> f1de070014d02e951122df4cde68602841c6fde8
             <Switch
               color="secondary"
               onChange={toggleTheme}

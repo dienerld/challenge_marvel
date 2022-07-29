@@ -22,7 +22,7 @@ export function Hero() {
 
   const getHero = async () => {
     const { data: dataAxios } = await fetchHeroById(id!);
-    const [_hero] = dataAxios.data.results;
+    const [_hero] = fixThumb(dataAxios.data.results) as TResponseApiHero[];
     setHero(_hero);
   };
 

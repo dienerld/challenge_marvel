@@ -12,30 +12,11 @@ export type TParamsMarvel = {
   orderBy?: string;
   limit?: number;
   offset?: number;
-}
+};
 
 const fetchHeroes = createAsyncThunk(
-<<<<<<< HEAD
-  'marvel/fetchHeroes',
-  async (params?: TParamsMarvel) => (await axios.get(`${BASE_URL}/characters`, {
-    params: {
-      ...params,
-      ...auth(),
-    },
-  })).data,
-);
-
-const fetchHero = createAsyncThunk(
-  'marvel/fetchHero',
-  async (id: number, params?: TParamsMarvel) => (await axios.get(`${BASE_URL}/characters/${id}`, {
-    params: {
-      ...params,
-      ...auth(),
-    },
-  })).data,
-=======
   "marvel/fetchHeroes",
-  async (params?: Object) =>
+  async (params?: TParamsMarvel) =>
     (
       await axios.get(`${BASE_URL}/characters`, {
         params: {
@@ -48,7 +29,7 @@ const fetchHero = createAsyncThunk(
 
 const fetchHero = createAsyncThunk(
   "marvel/fetchHero",
-  async (id: number, params?: Object) =>
+  async (id: number, params?: TParamsMarvel) =>
     (
       await axios.get(`${BASE_URL}/characters/${id}`, {
         params: {
@@ -57,19 +38,19 @@ const fetchHero = createAsyncThunk(
         },
       })
     ).data
->>>>>>> f1de070014d02e951122df4cde68602841c6fde8
 );
 
 const fetchHeroesStartsWith = createAsyncThunk(
-  'marvel/fetchHeroesStartsWith',
-  async (params?: TParamsMarvel) => (await axios.get(`${BASE_URL}/characters`, {
-    params: {
-      ...params,
-      ...auth(),
-    },
-  })).data,
+  "marvel/fetchHeroesStartsWith",
+  async (params?: TParamsMarvel) =>
+    (
+      await axios.get(`${BASE_URL}/characters`, {
+        params: {
+          ...params,
+          ...auth(),
+        },
+      })
+    ).data
 );
 
-export {
-  fetchHeroes, fetchHero, fetchHeroesStartsWith,
-};
+export { fetchHeroes, fetchHero, fetchHeroesStartsWith };
