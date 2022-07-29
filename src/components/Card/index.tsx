@@ -23,12 +23,12 @@ const breakpoints = (theme: Theme) => ({
     maxHeight: '14rem',
   },
   [theme.breakpoints.up('sm')]: {
-    maxWidth: '15rem',
-    maxHeight: '12rem',
+    maxWidth: '18rem',
+    maxHeight: '14rem',
   },
   [theme.breakpoints.up('md')]: {
     maxWidth: '25rem',
-    maxHeight: '18rem',
+    maxHeight: '15rem',
   },
 });
 

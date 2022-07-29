@@ -1,14 +1,9 @@
-type TProductionItems = {
-  collectionURI: string;
-  name: string;
-  type?: string;
-}
-
-type THeroProduction = {
-  available: number;
-  collectionURI: string;
-  items: TProductionItems[];
-  returned: number;
+export type ContentHero ={
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
+  title: string;
 }
 
 export type TResponseApiHero = {
@@ -21,10 +16,6 @@ export type TResponseApiHero = {
     extension: string;
   };
   resourceURI: string;
-  comics: THeroProduction;
-  series: THeroProduction;
-  stories: THeroProduction;
-  events: THeroProduction;
   urls: {
     type: string;
     url: string;

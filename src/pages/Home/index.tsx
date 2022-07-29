@@ -1,7 +1,8 @@
-import { Box, Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
+import { useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Banner } from '../../components/Banner';
 import { Card } from '../../components/Card';
