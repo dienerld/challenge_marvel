@@ -7,7 +7,7 @@ import { fetchHeroes, fetchHero } from './fetch';
 
 type TAction = {
   payload: TResponseApiHeroes;
-}
+};
 const initialState: TResponseApiHeroes = {} as TResponseApiHeroes;
 
 const _allHeroesSlice = createSlice({
@@ -15,15 +15,12 @@ const _allHeroesSlice = createSlice({
   initialState,
   reducers: {
     clearAllHeroes: () => initialState,
-    updateHeroes: (state, { payload }:TAction) => {
+    updateHeroes: (state, { payload }: TAction) => {
       state = payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHeroes.fulfilled, (
-      state,
-      { payload }:TAction,
-    ) => {
+    builder.addCase(fetchHeroes.fulfilled, (state, { payload }: TAction) => {
       const heroesFixed = fixThumb(payload.data.results);
       payload.data.results = heroesFixed;
       state = payload;
@@ -40,10 +37,7 @@ const _HeroSlice = createSlice({
     updateHero: (state, { payload }: TAction) => payload,
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHero.fulfilled, (
-      state,
-      { payload }: TAction,
-    ) => {
+    builder.addCase(fetchHero.fulfilled, (state, { payload }: TAction) => {
       const heroesFixed = fixThumb(payload.data.results);
       payload.data.results = heroesFixed;
       state = payload;

@@ -5,12 +5,12 @@ import {
   Grid,
   Typography,
   useTheme,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { ContentHero, TResponseApiHero } from "../../@types/marvel";
-import { fetchContentById, fetchHeroById } from "../../api";
-import { fixThumb } from "../../utils/fixThumb";
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { ContentHero, TResponseApiHero } from '../../@types/marvel';
+import { fetchContentById, fetchHeroById } from '../../api';
+import { fixThumb } from '../../utils/fixThumb';
 
 export function Hero() {
   const { id } = useParams();
@@ -34,8 +34,8 @@ export function Hero() {
 
   useEffect(() => {
     const getContent = async () => {
-      const responseComics = await fetchContentById(hero.id, "comics");
-      const responseStories = await fetchContentById(hero.id, "series");
+      const responseComics = await fetchContentById(hero.id, 'comics');
+      const responseStories = await fetchContentById(hero.id, 'series');
       setComics(fixThumb(responseComics.data.results) as ContentHero[]);
       setStories(fixThumb(responseStories.data.results) as ContentHero[]);
     };
@@ -49,7 +49,7 @@ export function Hero() {
       container
       spacing={2}
       sx={{
-        overflowX: "hidden",
+        overflowX: 'hidden',
       }}
     >
       <Grid
@@ -59,10 +59,10 @@ export function Hero() {
         justifyContent="center"
         xs={12}
         sm={5}
-        sx={{ [theme.breakpoints.down("sm")]: { marginTop: "3rem" } }}
+        sx={{ [theme.breakpoints.down('sm')]: { marginTop: '3rem' } }}
       >
         <CardMedia
-          sx={{ maxWidth: "300px", maxHeight: "400px" }}
+          sx={{ maxWidth: '300px', maxHeight: '400px' }}
           component="img"
           image={`${hero?.thumbnail?.path}.${hero?.thumbnail?.extension}`}
           alt={hero?.name}
@@ -77,9 +77,9 @@ export function Hero() {
         paddingRight="3rem"
         flexDirection="column"
         sx={{
-          [theme.breakpoints.down("sm")]: {
-            paddingX: "5.5rem !important",
-            marginLeft: "0",
+          [theme.breakpoints.down('sm')]: {
+            paddingX: '5.5rem !important',
+            marginLeft: '0',
           },
         }}
       >
@@ -90,7 +90,7 @@ export function Hero() {
 
         <Typography variant="h6" color="primary" gutterBottom>
           <strong>Description: </strong>
-          {hero?.description ? hero.description : "Not finded"}
+          {hero?.description ? hero.description : 'Not found'}
         </Typography>
 
         <Typography variant="h6" color="primary" gutterBottom>
@@ -113,7 +113,7 @@ export function Hero() {
           {hero?.stories?.available}
         </Typography>
 
-        <Box sx={{ display: "flex", gap: "1rem", marginBottom: "3rem" }}>
+        <Box sx={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }}>
           {hero?.urls?.map((url) => (
             <a href={url.url} target="_blank" rel="noreferrer" key={url.type}>
               <Button variant="contained" color="secondary">
@@ -128,13 +128,13 @@ export function Hero() {
         item
         container
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "1rem",
-          margin: "1rem",
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '1rem',
+          margin: '1rem',
         }}
       >
         {comics.length > 0 && (
@@ -148,12 +148,12 @@ export function Hero() {
                 variant="outlined"
                 color="primary"
                 sx={{
-                  marginTop: "0.5rem",
-                  marginLeft: "1rem",
+                  marginTop: '0.5rem',
+                  marginLeft: '1rem',
                 }}
                 onClick={() => setMoreComics(!moreComics)}
               >
-                {moreComics ? "Less" : "More"}
+                {moreComics ? 'Less' : 'More'}
               </Button>
             </Box>
             <Box
@@ -172,7 +172,7 @@ export function Hero() {
                       component="img"
                       image={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                       title={hero.name}
-                      sx={{ maxWidth: "100px" }}
+                      sx={{ maxWidth: '100px' }}
                     />
                     <Typography variant="h6" color="primary" gutterBottom>
                       {comic.title}
@@ -195,12 +195,12 @@ export function Hero() {
                 variant="outlined"
                 color="primary"
                 sx={{
-                  marginTop: "0.5rem",
-                  marginLeft: "1rem",
+                  marginTop: '0.5rem',
+                  marginLeft: '1rem',
                 }}
                 onClick={() => setMoreStories(!moreStories)}
               >
-                {moreStories ? "Less" : "More"}
+                {moreStories ? 'Less' : 'More'}
               </Button>
             </Box>
 
@@ -220,7 +220,7 @@ export function Hero() {
                       component="img"
                       image={`${story.thumbnail.path}.${story.thumbnail.extension}`}
                       title={hero.name}
-                      sx={{ maxWidth: "100px" }}
+                      sx={{ maxWidth: '100px' }}
                     />
                     <Typography variant="h6" color="primary" gutterBottom>
                       {story.title}

@@ -8,7 +8,10 @@ export const fixThumb = (heroes: Array<ContentHero | TResponseApiHero>) => {
   const [path, extension] = logo.split('.');
 
   return heroes.map((hero) => {
-    if (notImageRegex.test(hero.thumbnail.path) || isGif.test(hero.thumbnail.extension)) {
+    if (
+      notImageRegex.test(hero.thumbnail.path)
+      || isGif.test(hero.thumbnail.extension)
+    ) {
       hero.thumbnail.path = path;
       hero.thumbnail.extension = extension;
     }

@@ -1,16 +1,3 @@
-type TProductionItems = {
-  collectionURI: string;
-  name: string;
-  type?: string;
-};
-
-type THeroProduction = {
-  available: number;
-  collectionURI: string;
-  items: TProductionItems[];
-  returned: number;
-};
-
 export type ContentHero = {
   thumbnail: {
     path: string;
@@ -40,8 +27,6 @@ export type TResponseApiHero = {
 };
 
 export type TResponseApiHeroes = {
-  name: ReactNode;
-  description: any;
   code: number;
   status: string;
   copyright: string;

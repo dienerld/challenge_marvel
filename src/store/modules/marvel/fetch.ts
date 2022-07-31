@@ -1,6 +1,6 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { auth, BASE_URL } from "../../../api/config";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { auth, BASE_URL } from '../../../api/config';
 
 export type TParamsMarvel = {
   name?: string;
@@ -15,42 +15,39 @@ export type TParamsMarvel = {
 };
 
 const fetchHeroes = createAsyncThunk(
-  "marvel/fetchHeroes",
-  async (params?: TParamsMarvel) =>
-    (
-      await axios.get(`${BASE_URL}/characters`, {
-        params: {
-          ...params,
-          ...auth(),
-        },
-      })
-    ).data
+  'marvel/fetchHeroes',
+  async (params?: TParamsMarvel) => (
+    await axios.get(`${BASE_URL}/characters`, {
+      params: {
+        ...params,
+        ...auth(),
+      },
+    })
+  ).data,
 );
 
 const fetchHero = createAsyncThunk(
-  "marvel/fetchHero",
-  async (id: number, params?: TParamsMarvel) =>
-    (
-      await axios.get(`${BASE_URL}/characters/${id}`, {
-        params: {
-          ...params,
-          ...auth(),
-        },
-      })
-    ).data
+  'marvel/fetchHero',
+  async (id: number, params?: TParamsMarvel) => (
+    await axios.get(`${BASE_URL}/characters/${id}`, {
+      params: {
+        ...params,
+        ...auth(),
+      },
+    })
+  ).data,
 );
 
 const fetchHeroesStartsWith = createAsyncThunk(
-  "marvel/fetchHeroesStartsWith",
-  async (params?: TParamsMarvel) =>
-    (
-      await axios.get(`${BASE_URL}/characters`, {
-        params: {
-          ...params,
-          ...auth(),
-        },
-      })
-    ).data
+  'marvel/fetchHeroesStartsWith',
+  async (params?: TParamsMarvel) => (
+    await axios.get(`${BASE_URL}/characters`, {
+      params: {
+        ...params,
+        ...auth(),
+      },
+    })
+  ).data,
 );
 
 export { fetchHeroes, fetchHero, fetchHeroesStartsWith };

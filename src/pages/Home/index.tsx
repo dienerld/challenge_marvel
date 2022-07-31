@@ -1,17 +1,17 @@
-import { Grid } from "@mui/material";
-import { useEffect } from "react";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
-import { useDispatch, useSelector } from "react-redux";
-import { Banner } from "../../components/Banner";
-import { Card } from "../../components/Card";
-import { AppDispatch, reduxStates } from "../../store";
+import { Grid } from '@mui/material';
+import { useEffect } from 'react';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { Banner } from '../../components/Banner';
+import { Card } from '../../components/Card';
+import { AppDispatch, reduxStates } from '../../store';
 import {
   fetchHero,
   fetchHeroes,
   TParamsMarvel,
-} from "../../store/modules/marvel/fetch";
-import { randomHero } from "../../utils/randomHero";
+} from '../../store/modules/marvel/fetch';
+import { randomHero } from '../../utils/randomHero';
 
 const MAX_HERO = 1562;
 const limit = 25;
@@ -20,10 +20,10 @@ export function Home() {
   const dispatch = useDispatch<AppDispatch>();
 
   const alignCenter = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   const heroes = useSelector((state: reduxStates) => state.allHeroes);
@@ -62,8 +62,8 @@ export function Home() {
         item
         width="100vw"
         sx={{
-          padding: "0 1rem",
-          marginTop: "-3rem",
+          padding: '0 1rem',
+          marginTop: '-3rem',
         }}
       >
         {hero.code === 200 && (
