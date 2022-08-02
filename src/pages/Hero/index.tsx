@@ -1,13 +1,10 @@
 import {
-  Box,
-  Button,
-  CardMedia,
-  Grid,
-  Typography,
-  useTheme,
+  Box, Button, CardMedia,
+  Grid, Typography, useTheme,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { ContentHero, TResponseApiHero } from '../../@types/marvel';
 import { fetchContentById, fetchHeroById } from '../../api';
 import { fixThumb } from '../../utils/fixThumb';

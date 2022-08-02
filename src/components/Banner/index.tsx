@@ -1,12 +1,14 @@
 import {
-  Box, Button, Grid, Typography, useTheme,
+  Box, Button, Grid,
+  Typography, useTheme,
 } from '@mui/material';
-import { useSelector } from 'react-redux';
-import { reduxStates } from '../../store';
+import { TResponseApiHero } from '../../@types/marvel';
 
-export function Banner() {
-  const apiResponseHero = useSelector((state: reduxStates) => state.hero);
-  const hero = apiResponseHero.data.results[0];
+type TProps = {
+  hero: TResponseApiHero;
+}
+
+export function Banner({ hero }: TProps) {
   const theme = useTheme();
 
   return (

@@ -19,7 +19,7 @@ function App() {
     setTheme(nameTheme === 'light' ? defaultTheme : darkTheme);
   }, [nameTheme]);
 
-  const pages: string[] = ['home'];
+  const pages: string[] = ['home', 'all'];
 
   return (
     <Provider store={reduxStore}>

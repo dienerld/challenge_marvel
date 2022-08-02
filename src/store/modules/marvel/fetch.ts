@@ -14,6 +14,11 @@ export type TParamsMarvel = {
   offset?: number;
 };
 
+type TRequestHero = {
+  id: number;
+  params?: TParamsMarvel
+}
+
 const fetchHeroes = createAsyncThunk(
   'marvel/fetchHeroes',
   async (params?: TParamsMarvel) => (
@@ -28,7 +33,7 @@ const fetchHeroes = createAsyncThunk(
 
 const fetchHero = createAsyncThunk(
   'marvel/fetchHero',
-  async (id: number, params?: TParamsMarvel) => (
+  async ({ id, params }: TRequestHero) => (
     await axios.get(`${BASE_URL}/characters/${id}`, {
       params: {
         ...params,
@@ -50,4 +55,4 @@ const fetchHeroesStartsWith = createAsyncThunk(
   ).data,
 );
 
-export { fetchHeroes, fetchHero, fetchHeroesStartsWith };
+export { fetchHeroes, fetchHeroesStartsWith, fetchHero };

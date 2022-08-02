@@ -1,16 +1,11 @@
 import {
-  Box,
-  Button,
-  Paper,
-  styled,
-  SxProps,
-  Theme,
-  Typography,
-  useTheme,
+  Box, Button, Paper, styled,
+  SxProps, Theme, Typography, useTheme,
 } from '@mui/material';
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { useNavigate } from 'react-router-dom';
+
 import { TResponseApiHero } from '../../@types/marvel';
 
 type StyledPaperProps = {

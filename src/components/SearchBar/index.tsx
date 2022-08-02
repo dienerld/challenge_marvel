@@ -25,6 +25,8 @@ export function SearchBar() {
 
   const searchHero = (e: KeyboardEvent): void => {
     if (e.key === 'Enter' && hero?.id) {
+      setInputValue('');
+      setNameSearched('');
       navigate(`/hero/${hero?.id}`);
     }
   };
@@ -41,7 +43,7 @@ export function SearchBar() {
 
   return (
     <Autocomplete
-      isOptionEqualToValue={(option, value) => option.id === value.id}
+      isOptionEqualToValue={(option, value) => !!option.match(value)}
       value={nameSearched}
       onChange={(event, newValue) => setNameSearched(newValue!)}
       inputValue={inputValue}
