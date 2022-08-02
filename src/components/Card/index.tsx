@@ -71,9 +71,9 @@ export function Card({ hero, sx }: SlideProps) {
           onClick={() => setIsFlipped(!isFlipped)}
           sx={{
             height: '18rem',
-            width: '95%',
+            width: '100%',
             borderRadius: '0.5rem',
-            background: `url(${hero.thumbnail.path}.${hero.thumbnail.extension}) center center / 100% 100% no-repeat`,
+            background: `transparent  url(${hero.thumbnail.path}.${hero.thumbnail.extension}) center center / 100% 100% no-repeat`,
             ...breakpoints(theme),
 
             display: 'flex',

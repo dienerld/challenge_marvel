@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -77,7 +77,14 @@ export function Home() {
             disableDotsControls
           >
             {heroes?.data.results.map((_hero) => (
-              <Card key={_hero.id} hero={_hero} />
+              <Box
+                key={_hero.id}
+                sx={{
+                  marginX: '0.2rem',
+                }}
+              >
+                <Card key={_hero.id} hero={_hero} />
+              </Box>
             ))}
           </AliceCarousel>
         )}
